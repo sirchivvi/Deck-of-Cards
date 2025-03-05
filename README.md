@@ -46,4 +46,20 @@ The program consists of multiple Java files:
     Card.java - Defines the Card class with attributes for rank and suit.
     Deck.java - Implements the methods for deck creation, printing, shuffling, and other operations.
 
+How to Run
+
+
+Navigate to the project directory:
+
+cd Card_Deck
+
+Compile the Java files:
+
+javac Main.java
+
+Run the program:
+
+    java Main
+
+
 
