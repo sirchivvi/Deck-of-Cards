@@ -39,6 +39,16 @@ public class Deck {
     	}
     	return null;
 	}
+	// Deal 5 random cards
+	public void dealCard() {
+    	Random rand = new Random();
+    	System.out.println("Dealing 5 random cards:");
+    	for (int i = 0; i < 5; i++) {
+        	int index = rand.nextInt(deck.size());
+        	deck.get(index).printCard();
+    	}
+	}
+
 
 
 
