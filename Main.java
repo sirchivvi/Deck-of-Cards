@@ -22,3 +22,25 @@ public class DeckOfCards {
         	System.out.println("6. Compare Two Cards (Same Rank?)");
         	System.out.println("7. Exit");
         	System.out.print("Enter your choice: ");
+
+		// Ensure valid input
+        	if (!sc.hasNextInt()) {
+            	System.out.println("Invalid input! Please enter a number.");
+            	sc.next(); // Clear the invalid input
+            	continue;
+        	}
+
+        	int choice = sc.nextInt();
+        	sc.nextLine(); // Consume the leftover newline character
+
+        	switch (choice) {
+            	case 1 -> deck.printDeck(); // Print all cards in the deck
+
+            	case 2 -> {
+                	// Prompt user for rank and suit of the card they want to find
+                	System.out.print("Enter rank (e.g., Ace, King, 10): ");
+                	String rank = sc.nextLine().trim();
+
+                	System.out.print("Enter suit (e.g., Hearts, Diamonds): ");
+                	String suit = sc.nextLine().trim();
+
