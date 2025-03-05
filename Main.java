@@ -44,3 +44,60 @@ public class DeckOfCards {
                 	System.out.print("Enter suit (e.g., Hearts, Diamonds): ");
                 	String suit = sc.nextLine().trim();
 
+			// Search for the card in the deck
+                	Card foundCard = deck.findCard(rank, suit);
+                	if (foundCard != null) {
+                    	System.out.println("Card found: ");
+                    	foundCard.printCard();
+                	} else {
+                    	System.out.println("Card not found in deck.");
+                	}
+            	}
+
+            	case 3 -> deck.dealCard(); // Deal 5 random cards
+
+            	case 4 -> deck.shuffleDeck(); // Shuffle the deck
+
+            	case 5, 6 -> {
+                	// Select two cards for comparison
+                	System.out.print("Enter rank of first card: ");
+                	String rank1 = sc.nextLine().trim();
+                	System.out.print("Enter suit of first card: ");
+                	String suit1 = sc.nextLine().trim();
+                	Card card1 = deck.findCard(rank1, suit1);
+
+                	System.out.print("Enter rank of second card: ");
+                	String rank2 = sc.nextLine().trim();
+                	System.out.print("Enter suit of second card: ");
+                	String suit2 = sc.nextLine().trim();
+                	Card card2 = deck.findCard(rank2, suit2);
+
+                	// Ensure both cards exist in the deck
+                	if (card1 == null || card2 == null) {
+                    	System.out.println("One or both cards not found in the deck.");
+                	} else {
+                    	if (choice == 5) {
+                        	// Check if same suit
+                        	System.out.println("Comparing if both cards have the same suit...");
+                        	System.out.println(card1.sameCard(card2) ? "Both cards have the same suit!" : "Cards have different suits.");
+                    	} else {
+                        	// Check if same rank
+                        	System.out.println("Comparing if both cards have the same rank...");
+                        	System.out.println(card1.compareCard(card2) ? "Both cards have the same rank!" : "Cards have different ranks.");
+                    	}
+                	}
+            	}
+
+            	case 7 -> {
+                	System.out.println("Exiting program. Thank you!");
+                	sc.close();
+                	System.exit(0);
+            	}
+
+            	default -> System.out.println("Invalid choice! Please enter a number between 1 and 7.");
+        	}
+    	}
+	}
+}
+
+
